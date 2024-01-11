@@ -1,5 +1,4 @@
 <?php
-//Global variables
 $customer_id = $_SESSION['customer_id'];
 
 //1. My Orders
