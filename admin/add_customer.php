@@ -88,7 +88,7 @@ require_once('partials/_head.php');
                     <input type="password" name="customer_password" class="form-control" value="">
                   </div>
                 </div>
-                <br><!-- For more projects: Visit    -->
+                <br>
                 <div class="form-row">
                   <div class="col-md-6">
                     <input type="submit" name="addCustomer" value="Add Customer" class="btn btn-success" value="">
@@ -99,7 +99,6 @@ require_once('partials/_head.php');
           </div>
         </div>
       </div>
-      <!-- Footer --><!-- For more projects: Visit    -->
       <?php
       require_once('partials/_footer.php');
       ?>
