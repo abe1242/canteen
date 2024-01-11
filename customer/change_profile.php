@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', '1');
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
@@ -16,10 +17,10 @@ if (isset($_POST['ChangeProfile'])) {
     $customer_id = $_SESSION['customer_id'];
 
     //Insert Captured information to a database table
-    $postQuery = "UPDATE rpos_customers SET customer_name =?, customer_phoneno =?, customer_email =?, customer_password =? WHERE  customer_id =?";
+    $postQuery = "UPDATE rpos_customers SET customer_name =?, customer_phoneno =?, customer_email =? WHERE  customer_id =?";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('sssss', $customer_name, $customer_phoneno, $customer_email, $customer_password, $customer_id);
+    $rc = $postStmt->bind_param('ssss', $customer_name, $customer_phoneno, $customer_email, $customer_id);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
@@ -63,13 +64,12 @@ if (isset($_POST['changePassword'])) {
             } elseif ($new_password != $confirm_password) {
                 $err = "Confirmation Password Does Not Match";
             } else {
-
                 $new_password  = sha1(md5($_POST['new_password']));
                 //Insert Captured information to a database table
                 $query = "UPDATE rpos_customers SET  customer_password =? WHERE customer_id =?";
                 $stmt = $mysqli->prepare($query);
                 //bind paramaters
-                $rc = $stmt->bind_param('si', $new_password, $customer_id);
+                $rc = $stmt->bind_param('ss', $new_password, $customer_id);
                 $stmt->execute();
 
                 //declare a varible which will be passed to alert function
@@ -187,7 +187,7 @@ require_once('partials/_head.php');
                                             <div class=" col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-email">Phone Number</label>
-                                                    <input type="text" id="input-email" value="<?php echo $customer->customer_phoneno; ?>" name="customer_phone" class="form-control form-control-alternative">
+                                                    <input type="text" id="input-email" value="<?php echo $customer->customer_phoneno; ?>" name="customer_phoneno" class="form-control form-control-alternative">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
