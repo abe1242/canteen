@@ -1,10 +1,11 @@
 <?php
+ini_set("display_erorrs", "1");
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
 if (isset($_GET['delete'])) {
-  $id = intval($_GET['delete']);
+  $id = $_GET['delete'];
   $adn = "DELETE FROM  rpos_products  WHERE  prod_id = ?";
   $stmt = $mysqli->prepare($adn);
   $stmt->bind_param('s', $id);
@@ -20,7 +21,7 @@ require_once('partials/_head.php');
 ?>
 
 <body>
-  <!-- Sidenav --><!-- For more projects: Visit    -->
+  <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
   ?>
@@ -48,7 +49,7 @@ require_once('partials/_head.php');
               <a href="add_product.php" class="btn btn-outline-success">
                 <i class="fas fa-utensils"></i>
                 Add New Product
-              </a><!-- For more projects: Visit    -->
+              </a>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -60,7 +61,7 @@ require_once('partials/_head.php');
                     <th scope="col">Price</th>
                     <th scope="col">Actions</th>
                   </tr>
-                </thead><!-- For more projects: Visit    -->
+                </thead>
                 <tbody>
                   <?php
                   $ret = "SELECT * FROM  rpos_products ";
@@ -98,7 +99,7 @@ require_once('partials/_head.php');
                           </button>
                         </a>
                       </td>
-                    </tr><!-- For more projects: Visit    -->
+                    </tr>
                   <?php } ?>
                 </tbody>
               </table>
@@ -117,5 +118,5 @@ require_once('partials/_head.php');
   require_once('partials/_scripts.php');
   ?>
 </body>
-<!-- For more projects: Visit    -->
+
 </html>

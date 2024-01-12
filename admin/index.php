@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
   $_SESSION['admin_id'] = $admin_id;
   if ($rs) {
     //if its sucessfull
-	//Visit   for more projects
+	
     header("location:dashboard.php");
   } else {
     $err = "Incorrect Authentication Credentials ";
@@ -34,7 +34,7 @@ require_once('partials/_head.php');
           </div>
         </div>
       </div>
-    </div><!-- For more projects: Visit    -->
+    </div>
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
@@ -49,7 +49,7 @@ require_once('partials/_head.php');
                     </div>
                     <input class="form-control" required name="admin_email" placeholder="Email" type="email">
                   </div>
-                </div><!-- For more projects: Visit    -->
+                </div>
                 <div class="form-group">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
@@ -63,7 +63,7 @@ require_once('partials/_head.php');
                   <label class="custom-control-label" for=" customCheckLogin">
                     <span class="text-muted">Remember Me</span>
                   </label>
-                </div><!-- For more projects: Visit    -->
+                </div>
                 <div class="text-center">
                   <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
                 </div>
@@ -89,5 +89,5 @@ require_once('partials/_head.php');
   require_once('partials/_scripts.php');
   ?>
 </body>
-<!-- For more projects: Visit    -->
+
 </html>

@@ -89,7 +89,7 @@ while ($admin = $res->fetch_object()) {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="hrm.php">
-              <i class="fas fa-user-tie text-primary"></i> HRM
+              <i class="fas fa-user-tie text-primary"></i> Staff
             </a>
           </li>
           <li class="nav-item">
@@ -100,16 +100,6 @@ while ($admin = $res->fetch_object()) {
           <li class="nav-item">
             <a class="nav-link" href="products.php">
               <i class="ni ni-bullet-list-67 text-primary"></i>Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="orders.php">
-              <i class="ni ni-cart text-primary"></i> Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="payments.php">
-              <i class="ni ni-credit-card text-primary"></i> Payments
             </a>
           </li>
           <li class="nav-item">

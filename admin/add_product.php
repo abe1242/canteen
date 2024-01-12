@@ -17,7 +17,7 @@ if (isset($_POST['addProduct'])) {
     move_uploaded_file($_FILES["prod_img"]["tmp_name"], "assets/img/products/" . $_FILES["prod_img"]["name"]);
     $prod_desc = $_POST['prod_desc'];
     $prod_price = $_POST['prod_price'];
-	//Visit   for more projects
+	
     //Insert Captured information to a database table
     $postQuery = "INSERT INTO rpos_products (prod_id, prod_code, prod_name, prod_img, prod_desc, prod_price ) VALUES(?,?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
@@ -46,14 +46,14 @@ require_once('partials/_head.php');
     <?php
     require_once('partials/_topnav.php');
     ?>
-    <!-- Header --><!-- For more projects: Visit    -->
+    <!-- Header -->
     <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
     <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
-    </div><!-- For more projects: Visit    -->
+    </div>
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -62,7 +62,7 @@ require_once('partials/_head.php');
           <div class="card shadow">
             <div class="card-header border-0">
               <h3>Please Fill All Fields</h3>
-            </div><!-- For more projects: Visit    -->
+            </div>
             <div class="card-body">
               <form method="POST" enctype="multipart/form-data">
                 <div class="form-row">
@@ -76,7 +76,7 @@ require_once('partials/_head.php');
                     <input type="text" name="prod_code" value="<?php echo $alpha; ?>-<?php echo $beta; ?>" class="form-control" value="">
                   </div>
                 </div>
-                <hr><!-- For more projects: Visit    -->
+                <hr>
                 <div class="form-row">
                   <div class="col-md-6">
                     <label>Product Image</label>
@@ -87,7 +87,7 @@ require_once('partials/_head.php');
                     <input type="text" name="prod_price" class="form-control" value="">
                   </div>
                 </div>
-                <hr><!-- For more projects: Visit    -->
+                <hr>
                 <div class="form-row">
                   <div class="col-md-12">
                     <label>Product Description</label>
@@ -104,7 +104,7 @@ require_once('partials/_head.php');
             </div>
           </div>
         </div>
-      </div><!-- For more projects: Visit    -->
+      </div>
       <!-- Footer -->
       <?php
       require_once('partials/_footer.php');
@@ -116,5 +116,4 @@ require_once('partials/_head.php');
   require_once('partials/_scripts.php');
   ?>
 </body>
-<!-- For more projects: Visit    -->
 </html>

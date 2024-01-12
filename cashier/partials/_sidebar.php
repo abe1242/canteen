@@ -98,16 +98,6 @@ while ($staff_id = $res->fetch_object()) {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="orders.php">
-              <i class="ni ni-cart text-primary"></i> Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="payments.php">
-              <i class="ni ni-credit-card text-primary"></i> Payments
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="receipts.php">
               <i class="fas fa-file-invoice-dollar text-primary"></i> Receipts
             </a>

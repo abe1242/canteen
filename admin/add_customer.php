@@ -3,7 +3,7 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 include('config/code-generator.php');
-//Visit   for more projects
+
 check_login();
 //Add Customer
 if (isset($_POST['addCustomer'])) {
@@ -31,12 +31,12 @@ if (isset($_POST['addCustomer'])) {
     }
   }
 }
-//Visit   for more projects
+
 require_once('partials/_head.php');
 ?>
 
 <body>
-<!-- For more projects: Visit    -->
+
   <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
@@ -63,7 +63,7 @@ require_once('partials/_head.php');
           <div class="card shadow">
             <div class="card-header border-0">
               <h3>Please Fill All Fields</h3>
-            </div><!-- For more projects: Visit    -->
+            </div>
             <div class="card-body">
               <form method="POST">
                 <div class="form-row">

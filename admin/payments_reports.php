@@ -7,7 +7,7 @@ require_once('partials/_head.php');
 ?>
 
 <body>
-    <!-- Sidenav --><!-- For more projects: Visit    -->
+    <!-- Sidenav -->
     <?php
     require_once('partials/_sidebar.php');
     ?>
@@ -44,7 +44,7 @@ require_once('partials/_head.php');
                                         <th scope="col">Amount Paid</th>
                                         <th class="text-success" scope="col">Date Paid</th>
                                     </tr>
-                                </thead><!-- For more projects: Visit    -->
+                                </thead>
                                 <tbody>
                                     <?php
                                     $ret = "SELECT * FROM  rpos_payments ORDER BY `created_at` DESC ";
@@ -71,7 +71,7 @@ require_once('partials/_head.php');
                                             </td>
                                         </tr>
                                     <?php } ?>
-                                </tbody><!-- For more projects: Visit    -->
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -88,5 +88,5 @@ require_once('partials/_head.php');
     require_once('partials/_scripts.php');
     ?>
 </body>
-<!-- For more projects: Visit    -->
+
 </html>

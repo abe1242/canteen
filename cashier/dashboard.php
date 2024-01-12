@@ -12,7 +12,7 @@ require_once('partials/_analytics.php');
   <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
-  ?><!-- For more projects: Visit    -->
+  ?>
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
@@ -25,7 +25,7 @@ require_once('partials/_analytics.php');
       <div class="container-fluid">
         <div class="header-body">
           <!-- Card stats -->
-          <div class="row"><!-- For more projects: Visit    -->
+          <div class="row">
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -43,7 +43,7 @@ require_once('partials/_analytics.php');
                 </div>
               </div>
             </div>
-			<!-- For more projects: Visit    -->
+			
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -60,7 +60,7 @@ require_once('partials/_analytics.php');
                   </div>
                 </div>
               </div>
-            </div><!-- For more projects: Visit    -->
+            </div>
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -77,7 +77,7 @@ require_once('partials/_analytics.php');
                   </div>
                 </div>
               </div>
-            </div><!-- For more projects: Visit    -->
+            </div>
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -98,7 +98,7 @@ require_once('partials/_analytics.php');
           </div>
         </div>
       </div>
-    </div><!-- For more projects: Visit    -->
+    </div>
     <!-- Page content -->
     <div class="container-fluid mt--7">
       <div class="row mt-5">
@@ -113,7 +113,7 @@ require_once('partials/_analytics.php');
                   <a href="orders_reports.php" class="btn btn-sm btn-primary">See all</a>
                 </div>
               </div>
-            </div><!-- For more projects: Visit    -->
+            </div>
             <div class="table-responsive">
               <!-- Projects table -->
               <table class="table align-items-center table-flush">
@@ -128,7 +128,7 @@ require_once('partials/_analytics.php');
                     <th scop="col">Status</th>
                     <th class="text-success" scope="col">Date</th>
                   </tr>
-                </thead><!-- For more projects: Visit    -->
+                </thead>
                 <tbody>
                   <?php
                   $ret = "SELECT * FROM  rpos_orders ORDER BY `rpos_orders`.`created_at` DESC LIMIT 7 ";
@@ -160,7 +160,7 @@ require_once('partials/_analytics.php');
           </div>
         </div>
       </div>
-		<!-- For more projects: Visit    -->
+		
       <div class="row mt-5">
         <div class="col-xl-12">
           <div class="card shadow">
@@ -219,5 +219,5 @@ require_once('partials/_analytics.php');
   require_once('partials/_scripts.php');
   ?>
 </body>
-<!-- For more projects: Visit    -->
+
 </html>
