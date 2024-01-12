@@ -141,32 +141,16 @@ CREATE TABLE `rpos_products` (
 --
 
 INSERT INTO `rpos_products` (`prod_id`, `prod_code`, `prod_name`, `prod_img`, `prod_desc`, `prod_price`, `created_at`) VALUES
-('06dc36c1be', 'FCWU-5762', 'Philly Cheesesteak', 'cheesestk.jpg', '', '7', '2022-09-03 11:02:47.738370'),
-('0c4b5c0604', 'JRZN-9518', 'Spaghetti Bolognese', 'spaghetti_bolognese.jpg', '', '15', '2022-09-03 10:43:27.610897'),
-('14c7b6370e', 'QZHM-0391', 'Reuben Sandwich', 'reubensandwich.jpg', '', '8', '2022-09-03 10:58:04.069144'),
-('1e0fa41eee', 'ICFU-1406', 'Submarine Sandwich', 'submarine_sndwh.jpg', '', '8', '2022-09-03 10:55:23.020144'),
-('2b976e49a0', 'CEWV-9438', 'Cheeseburger', 'cheeseburgers.jpg', '', '3', '2022-09-03 10:45:47.282634'),
-('2fdec9bdfb', 'UJAK-9614', 'Jambalaya', 'Jambalaya.jpg', '', '9', '2022-09-03 10:48:49.593618'),
-('31dfcc94cf', 'SYQP-3710', 'Buffalo Wings', 'buffalo_wings.jpg', '', '11', '2022-09-03 10:51:09.829079'),
-('3adfdee116', 'HIPF-5346', 'Enchiladas', 'enchiladas.jpg', '', '10', '2022-09-03 12:52:26.427554'),
-('3d19e0bf27', 'EMBH-6714', 'Cincinnati Chili', 'cincinnatichili.jpg', '', '9', '2022-09-03 12:57:39.265554'),
-('4e68e0dd49', 'QLKW-0914', 'Caramel Macchiato', '', '', '4', '2022-09-03 08:55:51.237667'),
-('5d66c79953', 'GOEW-9248', 'Cheese Curd', 'cheesecurd.jpg', '', '6', '2022-09-03 11:22:25.639690'),
-('826e6f687f', 'AYFW-2683', 'Margherita Pizza', 'margherita-pizza0.jpg', '', '12', '2022-09-03 08:02:57.213354'),
-('97972e8d63', 'CVWJ-6492', 'Irish Coffee', 'irishcoffee.jpg', '', '11', '2022-09-03 13:08:19.157649'),
-('a419f2ef1c', 'EPNX-3728', 'Chicken Nugget', 'chicnuggets.jpeg', '', '5', '2022-09-03 12:44:07.749371'),
-('a5931158fe', 'ELQN-5204', 'Pulled Pork', 'pulledprk.jpeg', '', '8', '2022-09-03 13:04:12.191403'),
-('b2f9c250fd', 'XNWR-2768', 'Strawberry Rhubarb Pie', 'rhuharbpie.jpg', '', '7', '2022-09-03 13:06:28.235333'),
-('bd200ef837', 'HEIY-6034', 'Turkish Coffee', 'turkshcoffee.jpg', '', '8', '2022-09-03 13:09:50.234898'),
-('cff0cb495a', 'ZOBW-2640', 'Americano', '', '', '3', '2022-09-03 08:56:18.824990'),
-('d57cd89073', 'ZGQW-9480', 'Country Fried Steak', 'country_fried_stk.jpg', '', '10', '2022-09-03 11:00:05.523519'),
-('d9aed17627', 'FIKD-9703', 'Crab Cake', 'crabcakes.jpg', '', '16', '2022-09-03 12:54:52.120847'),
-('e2195f8190', 'HKCR-2178', 'Carbonara', 'carbonaraimgre.jpg', '', '16', '2022-09-03 10:23:06.266420'),
-('e2af35d095', 'IDLC-7819', 'Pepperoni Pizza', 'peperopizza.jpg', '', '7', '2022-09-03 12:49:01.017677'),
-('e769e274a3', 'AHRW-3894', 'Frappuccino', 'frappuccino.jpg', '', '3', '2022-09-03 13:11:30.109467'),
-('ec18c5a4f0', 'PQFV-7049', 'Corn Dogs', 'corndog.jpg', '', '4', '2022-09-03 13:00:32.787354'),
-('f4ce3927bf', 'EAHD-1980', 'Hot Dog', 'hotdog0.jpg', '', '4', '2022-09-03 10:53:04.965223'),
-('f9c2770a32', 'YXLA-2603', 'Whipped Milk Shake', 'milkshake.jpeg', '', '8', '2022-09-03 08:54:02.727645');
+('06dc36c1be', 'FCWU-5762', 'Fresh Lime', 'Fresh Lime.jpeg', 'Fresh Lime', '15', '2022-09-03 11:02:47.738370'),
+('0c4b5c0604', 'JRZN-9518', 'Uzhunnu Vada', 'Uzhunnu Vada.jpeg', 'Uzhunnu Vada', '10', '2022-09-03 10:43:27.610897'),
+('14c7b6370e', 'QZHM-0391', 'Chicken Biriyani', 'Chicken Biriyani.jpeg', 'Chicken Biriyani', '60', '2022-09-03 10:58:04.069144'),
+('1e0fa41eee', 'ICFU-1406', 'Goli Baje (Plate: 10)', 'Golibage.jpeg', 'golibaje', '20', '2022-09-03 10:55:23.020144'),
+('2b976e49a0', 'CEWV-9438', 'Parippu Vada', 'Parippu Vada.jpeg', 'Parippu Vada', '10', '2022-09-03 10:45:47.282634'),
+('2fdec9bdfb', 'UJAK-9614', 'Vellayappam', 'vellayappam.jpeg', 'vellayappam', '10', '2022-09-03 10:48:49.593618'),
+('31dfcc94cf', 'SYQP-3710', 'Idali', 'idali.jpeg', 'Idali', '10', '2022-09-03 10:51:09.829079'),
+('3adfdee116', 'HIPF-5346', 'Samoosa', 'Samoosa.jpeg', 'Samoosa', '8', '2022-09-03 12:52:26.427554'),
+('3d19e0bf27', 'EMBH-6714', 'Chaya', 'chaya.jpeg', 'Chaya', '7', '2022-09-03 12:57:39.265554'),
+('4e68e0dd49', 'QLKW-0914', 'Pazham Pori', 'Pazham Pori.jpeg', 'Pazham Pori', '10', '2022-09-03 08:55:51.237667');
 
 -- --------------------------------------------------------
 
