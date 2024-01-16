@@ -93,11 +93,6 @@ while ($admin = $res->fetch_object()) {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="customes.php">
-              <i class="fas fa-users text-primary"></i> Customers
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="products.php">
               <i class="ni ni-bullet-list-67 text-primary"></i>Products
             </a>
