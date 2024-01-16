@@ -152,28 +152,6 @@ INSERT INTO `rpos_products` (`prod_id`, `prod_code`, `prod_name`, `prod_img`, `p
 ('3d19e0bf27', 'EMBH-6714', 'Chaya', 'chaya.jpeg', 'Chaya', '7', '2022-09-03 12:57:39.265554'),
 ('4e68e0dd49', 'QLKW-0914', 'Pazham Pori', 'Pazham Pori.jpeg', 'Pazham Pori', '10', '2022-09-03 08:55:51.237667');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `rpos_staff`
---
-
-CREATE TABLE `rpos_staff` (
-  `staff_id` int(20) NOT NULL,
-  `staff_name` varchar(200) NOT NULL,
-  `staff_number` varchar(200) NOT NULL,
-  `staff_email` varchar(200) NOT NULL,
-  `staff_password` varchar(200) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rpos_staff`
---
-
-INSERT INTO `rpos_staff` (`staff_id`, `staff_name`, `staff_number`, `staff_email`, `staff_password`, `created_at`) VALUES
-(2, 'Sharon', 'QEUY-9042', 'sharon@mail.com', 'adcb18e389eed5e10ea8db4004190dc23bf881c8', '2022-09-04 16:11:30.581882');
-
 --
 -- Indexes for dumped tables
 --

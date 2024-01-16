@@ -104,7 +104,7 @@ require_once('partials/_head.php');
         while ($customer = $res->fetch_object()) {
         ?>
             <!-- Header -->
-            <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../admin/assets/img/theme/restro00.jpg); background-size: cover; background-position: center top;">
+            <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../cashier/assets/img/theme/restro00.jpg); background-size: cover; background-position: center top;">
                 <!-- Mask -->
                 <span class="mask bg-gradient-default opacity-8"></span>
                 <!-- Header container -->
@@ -126,7 +126,7 @@ require_once('partials/_head.php');
                                 <div class="col-lg-3 order-lg-2">
                                     <div class="card-profile-image">
                                         <a href="#">
-                                            <img src="../admin/assets/img/theme/user-a-min.png" class="rounded-circle">
+                                            <img src="../cashier/assets/img/theme/user-a-min.png" class="rounded-circle">
                                         </a>
                                     </div>
                                 </div>
