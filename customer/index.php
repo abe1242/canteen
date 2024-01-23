@@ -66,7 +66,8 @@ require_once('partials/_head.php');
                                 <div class="form-group">
                                     <div class="text-left">
                                         <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
-                                        <a href="create_account.php" class=" btn btn-success pull-right">Create Account</a>
+                                        <a href="create_account.php" class=" btn btn-success pull-right">Create Account</a><br>
+                                        <a href="forgot_password.php" class="">Forgot Password?</a>
                                     </div>
                                 </div>
                             </form>
