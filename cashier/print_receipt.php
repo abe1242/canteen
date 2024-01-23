@@ -49,13 +49,13 @@ while ($order = $res->fetch_object()) {
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <address>
-                                <strong>NOWDEMY</strong>
+                                <strong>CANTEEN</strong>
                                 <br>
-                                127-0-0-1
+                                Government Polytechnic College Kasaragod, Periya
                                 <br>
-                                4151 Willow Oaks Lane, khi
+                                Kerala, India
                                 <br>
-                                (+000) 337-337-3069
+                                +91 9848529385
                             </address>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -86,8 +86,8 @@ while ($order = $res->fetch_object()) {
                                     <td class="col-md-9"><em> <?php echo $order->prod_name; ?> </em></h4>
                                     </td>
                                     <td class="col-md-1" style="text-align: center"> <?php echo $order->prod_qty; ?></td>
-                                    <td class="col-md-1 text-center">$<?php echo $order->prod_price; ?></td>
-                                    <td class="col-md-1 text-center">$<?php echo $total; ?></td>
+                                    <td class="col-md-1 text-center">₹<?php echo $order->prod_price; ?></td>
+                                    <td class="col-md-1 text-center">₹<?php echo $total; ?></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
@@ -102,7 +102,7 @@ while ($order = $res->fetch_object()) {
                                     </td>
                                     <td class="text-center">
                                         <p>
-                                            <strong>$<?php echo $total; ?></strong>
+                                            <strong>₹<?php echo $total; ?></strong>
                                         </p>
                                         <p>
                                             <strong>14%</strong>
@@ -116,7 +116,7 @@ while ($order = $res->fetch_object()) {
                                         <h4><strong>Total: </strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong>$<?php echo $total; ?></strong></h4>
+                                        <h4><strong>₹<?php echo $total; ?></strong></h4>
                                     </td>
                                 </tr>
                             </tbody>
