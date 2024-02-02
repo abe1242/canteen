@@ -1,6 +1,9 @@
 <?php
+ini_set("display_errors", 1);
 session_start();
+
 include('config/config.php');
+include('config/sendEmail.php');
 require_once('config/code-generator.php');
 
 if (isset($_POST['reset_pwd'])) {
@@ -20,6 +23,7 @@ if (isset($_POST['reset_pwd'])) {
     $rc = $reset->bind_param('ssss', $reset_email, $reset_code, $reset_token, $reset_status);
     $reset->execute();
     if ($reset) {
+      sendEmail("abmdn1242@gmail.com", "Password reset link", "Hello");
       $success = "Password Reset Instructions Sent To Your Email";
       // && header("refresh:1; url=index.php");
     } else {
