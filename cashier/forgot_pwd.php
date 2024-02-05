@@ -31,7 +31,7 @@ if (isset($_POST['reset_pwd'])) {
     if ($reset) {
       sendEmail("abmdn1242@gmail.com", "Password reset link", "Password reset code: $reset_code");
       $success = "Password Reset Instructions Sent To Your Email";
-      // && header("refresh:1; url=index.php");
+      header("refresh:1; url=reset_pwd.php");
     } else {
       $err = "Please Try Again Or Try Later";
     }
