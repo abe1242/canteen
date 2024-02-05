@@ -91,7 +91,6 @@ CREATE TABLE `rpos_orders` (
 CREATE TABLE `rpos_pass_resets` (
   `reset_id` int(20) NOT NULL,
   `reset_code` varchar(200) NOT NULL,
-  `reset_token` varchar(200) NOT NULL,
   `reset_email` varchar(200) NOT NULL,
   `reset_status` varchar(200) NOT NULL,
   `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
