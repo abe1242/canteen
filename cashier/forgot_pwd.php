@@ -6,6 +6,13 @@ include('config/config.php');
 include('config/sendEmail.php');
 require_once('config/code-generator.php');
 
+function get_reset_code() {
+  $result = '';
+  for ($i = 0; $i < 6; $i++)
+    $result .= random_int(0, 9);
+  return $result;
+}
+
 if (isset($_POST['reset_pwd'])) {
   if (!filter_var($_POST['reset_email'], FILTER_VALIDATE_EMAIL)) {
     $err = 'Invalid Email';
@@ -14,16 +21,15 @@ if (isset($_POST['reset_pwd'])) {
   if (mysqli_num_rows($checkEmail) > 0) {
     //exit('This email is already being used');
     //Reset Password
-    $reset_code = $_POST['reset_code'];
-    $reset_token = sha1(md5($_POST['reset_token']));
-    $reset_status = $_POST['reset_status'];
+    $reset_status = "Pending";
+    $reset_code = get_reset_code();
     $reset_email = $_POST['reset_email'];
-    $query = "INSERT INTO rpos_pass_resets (reset_email, reset_code, reset_token, reset_status) VALUES (?,?,?,?)";
+    $query = "INSERT INTO rpos_pass_resets (reset_email, reset_code, reset_status) VALUES (?,?,?)";
     $reset = $mysqli->prepare($query);
-    $rc = $reset->bind_param('ssss', $reset_email, $reset_code, $reset_token, $reset_status);
+    $rc = $reset->bind_param('sss', $reset_email, $reset_code, $reset_status);
     $reset->execute();
     if ($reset) {
-      sendEmail("abmdn1242@gmail.com", "Password reset link", "Hello");
+      sendEmail("abmdn1242@gmail.com", "Password reset link", "Password reset code: $reset_code");
       $success = "Password Reset Instructions Sent To Your Email";
       // && header("refresh:1; url=index.php");
     } else {
@@ -64,11 +70,6 @@ require_once('partials/_head.php');
                       </div>
                       <input class="form-control" required name="reset_email" placeholder="Email" type="email">
                     </div>
-                  </div>
-                  <div style="display:none">
-                    <input type="text" value="<?php echo $tk; ?>" name="reset_token">
-                    <input type="text" value="<?php echo $rc; ?>" name="reset_code">
-                    <input type="text" value="Pending" name="reset_status">
                   </div>
                   <div class="text-center">
                     <button type="submit" name="reset_pwd" class="btn btn-primary my-4">Reset Password</button>
