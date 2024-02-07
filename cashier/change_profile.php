@@ -189,39 +189,37 @@ require_once('partials/_head.php');
                 </div>
               </form>
               <hr>
-              <form method="post">
-                            <h6 class="heading-small text-muted mb-4">Change Password</h6>
-                            <div class="pl-lg-4">
-                              <div class="row">
-                                <div class="col-lg-12">
-                                  <div class="form-group">
-                                    <label class="form-control-label" for="input-username">Old Password</label>
-                                    <input type="password" name="old_password" id="input-username" class="form-control form-control-alternative">
-                                  </div>
-                                </div>
+              <form method=" post">
+                <h6 class="heading-small text-muted mb-4">Change Password</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Old Password</label>
+                        <input type="password" name="old_password" id="input-username" class="form-control form-control-alternative">
+                      </div>
+                    </div>
 
-                                <div class="col-lg-12">
-                                  <div class="form-group">
-                                    <label class="form-control-label" for="input-email">New Password</label>
-                                    <input type="password" name="new_password" class="form-control form-control-alternative">
-                                  </div>
-                                </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">New Password</label>
+                        <input type="password" name="new_password" class="form-control form-control-alternative">
+                      </div>
+                    </div>
 
-                                <div class="col-lg-12">
-                                  <div class="form-group">
-                                    <label class="form-control-label" for="input-email">Confirm New Password</label>
-                                    <input type="password" name="confirm_password" class="form-control form-control-alternative">
-                                  </div>
-                                </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Confirm New Password</label>
+                        <input type="password" name="confirm_password" class="form-control form-control-alternative">
+                      </div>
+                    </div>
 
-                                <div class="col-lg-12">
-                                  <div class="form-group">
-                                    <input type="submit" id="input-email" name="changePassword" class="btn btn-success form-control-alternative" value="Change Password">
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <input type="submit" id="input-email" name="changePassword" class="btn btn-success form-control-alternative" value="Change Password">
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
