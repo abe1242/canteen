@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 -- Database: `rposystem`
 --
 
-
 -- ADMIN
 CREATE TABLE `rpos_admin` (
   `admin_id` varchar(200) NOT NULL,
