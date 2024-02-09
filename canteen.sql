@@ -96,13 +96,6 @@ CREATE TABLE `rpos_pass_resets` (
   `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rpos_pass_resets`
---
-
-INSERT INTO `rpos_pass_resets` (`reset_id`, `reset_code`, `reset_token`, `reset_email`, `reset_status`, `created_at`) VALUES
-(1, '63KU9QDGSO', '4ac4cee0a94e82a2aedc311617aa437e218bdf68', 'sysadmin@icofee.org', 'Pending', '2020-08-17 15:20:14.318643');
-
 -- --------------------------------------------------------
 
 --
@@ -195,12 +188,6 @@ ALTER TABLE `rpos_products`
   ADD PRIMARY KEY (`prod_id`);
 
 --
--- Indexes for table `rpos_staff`
---
-ALTER TABLE `rpos_staff`
-  ADD PRIMARY KEY (`staff_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -210,10 +197,6 @@ ALTER TABLE `rpos_staff`
 ALTER TABLE `rpos_pass_resets`
   MODIFY `reset_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `rpos_staff`
---
-ALTER TABLE `rpos_staff`
-  MODIFY `staff_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
