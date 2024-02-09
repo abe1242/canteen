@@ -17,7 +17,16 @@ if (isset($_POST['reset_pwd'])) {
   if (!filter_var($_POST['reset_email'], FILTER_VALIDATE_EMAIL)) {
     $err = 'Invalid Email';
   }
-  $checkEmail = mysqli_query($mysqli, "SELECT `admin_email` FROM `rpos_admin` WHERE `admin_email` = '" . $_POST['reset_email'] . "'") or exit(mysqli_error($mysqli));
+  $reset_email = $_POST["reset_email"];
+  $checkEmailQuery = "
+  SELECT DISTINCT email
+  FROM (
+    SELECT customer_email AS email FROM rpos_customers
+    UNION ALL
+    SELECT admin_email AS email FROM rpos_admin
+  ) AS combined_emails WHERE email='$reset_email';
+  ";
+  $checkEmail = mysqli_query($mysqli,  $checkEmailQuery) or exit(mysqli_error($mysqli));
   if (mysqli_num_rows($checkEmail) > 0) {
     //exit('This email is already being used');
     //Reset Password
@@ -29,9 +38,9 @@ if (isset($_POST['reset_pwd'])) {
     $rc = $reset->bind_param('sss', $reset_email, $reset_code, $reset_status);
     $reset->execute();
     if ($reset) {
-      sendEmail("abmdn1242@gmail.com", "Password reset link", "Password reset code: $reset_code");
+      sendEmail($reset_email, "Password reset link", "Password reset code: $reset_code");
       $success = "Password Reset Instructions Sent To Your Email";
-      header("refresh:1; url=reset_pwd.php");
+      header("refresh:1; url=reset_pwd.php?reset_email=$reset_email");
     } else {
       $err = "Please Try Again Or Try Later";
     }
