@@ -20,12 +20,8 @@ SET time_zone = "+00:00";
 -- Database: `rposystem`
 --
 
--- --------------------------------------------------------
 
---
--- Table structure for table `rpos_admin`
---
-
+-- ADMIN
 CREATE TABLE `rpos_admin` (
   `admin_id` varchar(200) NOT NULL,
   `admin_name` varchar(200) NOT NULL,
@@ -33,19 +29,14 @@ CREATE TABLE `rpos_admin` (
   `admin_password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rpos_admin`
---
-
 INSERT INTO `rpos_admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
 ('10e0b6dc958adfb5b094d8935a13aeadbe783c25', 'System Admin', 'admin@mail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad');
 
--- --------------------------------------------------------
+ALTER TABLE `rpos_admin`
+  ADD PRIMARY KEY (`admin_id`);
 
---
--- Table structure for table `rpos_customers`
---
 
+-- CUSTOMERS
 CREATE TABLE `rpos_customers` (
   `customer_id` varchar(200) NOT NULL,
   `customer_name` varchar(200) NOT NULL,
@@ -55,69 +46,15 @@ CREATE TABLE `rpos_customers` (
   `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rpos_customers`
---
-
 INSERT INTO `rpos_customers` (`customer_id`, `customer_name`, `customer_phoneno`, `customer_email`, `customer_password`, `created_at`) VALUES
 ('06549ea58afd', 'Abhishek', '4589698780', 'abhishek@mail.com', '5cca54cbe968d89e54864b84f5fede0e6b39c004', '2022-09-03 12:39:48.523820'),
 ('1fc1f694985d', 'Aswin', '2145896547', 'aswin@mail.com', 'e740231ccf00636b79fe690b8e9409ce81a0537f', '2022-09-03 13:39:13.076592');
 
--- --------------------------------------------------------
+ALTER TABLE `rpos_customers`
+  ADD PRIMARY KEY (`customer_id`);
 
---
--- Table structure for table `rpos_orders`
---
 
-CREATE TABLE `rpos_orders` (
-  `order_id` varchar(200) NOT NULL,
-  `order_code` varchar(200) NOT NULL,
-  `customer_id` varchar(200) NOT NULL,
-  `customer_name` varchar(200) NOT NULL,
-  `prod_id` varchar(200) NOT NULL,
-  `prod_name` varchar(200) NOT NULL,
-  `prod_price` varchar(200) NOT NULL,
-  `prod_qty` varchar(200) NOT NULL,
-  `order_status` varchar(200) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rpos_pass_resets`
---
-
-CREATE TABLE `rpos_pass_resets` (
-  `reset_id` int(20) NOT NULL,
-  `reset_code` varchar(200) NOT NULL,
-  `reset_email` varchar(200) NOT NULL,
-  `reset_status` varchar(200) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rpos_payments`
---
-
-CREATE TABLE `rpos_payments` (
-  `pay_id` varchar(200) NOT NULL,
-  `pay_code` varchar(200) NOT NULL,
-  `order_code` varchar(200) NOT NULL,
-  `customer_id` varchar(200) NOT NULL,
-  `pay_amt` varchar(200) NOT NULL,
-  `pay_method` varchar(200) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rpos_products`
---
-
+-- PRODUCTS
 CREATE TABLE `rpos_products` (
   `prod_id` varchar(200) NOT NULL,
   `prod_code` varchar(200) NOT NULL,
@@ -127,10 +64,6 @@ CREATE TABLE `rpos_products` (
   `prod_price` varchar(200) NOT NULL,
   `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rpos_products`
---
 
 INSERT INTO `rpos_products` (`prod_id`, `prod_code`, `prod_name`, `prod_img`, `prod_desc`, `prod_price`, `created_at`) VALUES
 ('06dc36c1be', 'FCWU-5762', 'Fresh Lime', 'Fresh Lime.jpeg', 'Fresh Lime', '15', '2022-09-03 11:02:47.738370'),
@@ -144,70 +77,61 @@ INSERT INTO `rpos_products` (`prod_id`, `prod_code`, `prod_name`, `prod_img`, `p
 ('3d19e0bf27', 'EMBH-6714', 'Chaya', 'chaya.jpeg', 'Chaya', '7', '2022-09-03 12:57:39.265554'),
 ('4e68e0dd49', 'QLKW-0914', 'Pazham Pori', 'Pazham Pori.jpeg', 'Pazham Pori', '10', '2022-09-03 08:55:51.237667');
 
---
--- Indexes for dumped tables
---
+ALTER TABLE `rpos_products`
+  ADD PRIMARY KEY (`prod_id`);
 
---
--- Indexes for table `rpos_admin`
---
-ALTER TABLE `rpos_admin`
-  ADD PRIMARY KEY (`admin_id`);
 
---
--- Indexes for table `rpos_customers`
---
-ALTER TABLE `rpos_customers`
-  ADD PRIMARY KEY (`customer_id`);
+-- ORDERS
+CREATE TABLE `rpos_orders` (
+  `order_id` varchar(200) NOT NULL,
+  `order_code` varchar(200) NOT NULL,
+  `customer_id` varchar(200) NOT NULL,
+  `customer_name` varchar(200) NOT NULL,
+  `prod_id` varchar(200) NOT NULL,
+  `prod_name` varchar(200) NOT NULL,
+  `prod_price` varchar(200) NOT NULL,
+  `prod_qty` varchar(200) NOT NULL,
+  `order_status` varchar(200) NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for table `rpos_orders`
---
 ALTER TABLE `rpos_orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `CustomerOrder` (`customer_id`),
   ADD KEY `ProductOrder` (`prod_id`);
 
---
--- Indexes for table `rpos_pass_resets`
---
-ALTER TABLE `rpos_pass_resets`
-  ADD PRIMARY KEY (`reset_id`);
-
---
--- Indexes for table `rpos_payments`
---
-ALTER TABLE `rpos_payments`
-  ADD PRIMARY KEY (`pay_id`),
-  ADD KEY `order` (`order_code`);
-
---
--- Indexes for table `rpos_products`
---
-ALTER TABLE `rpos_products`
-  ADD PRIMARY KEY (`prod_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `rpos_pass_resets`
---
-ALTER TABLE `rpos_pass_resets`
-  MODIFY `reset_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `rpos_orders`
---
 ALTER TABLE `rpos_orders`
   ADD CONSTRAINT `CustomerOrder` FOREIGN KEY (`customer_id`) REFERENCES `rpos_customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ProductOrder` FOREIGN KEY (`prod_id`) REFERENCES `rpos_products` (`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- PASS RESET
+CREATE TABLE `rpos_pass_resets` (
+  `reset_id` int(20) NOT NULL,
+  `reset_code` varchar(200) NOT NULL,
+  `reset_email` varchar(200) NOT NULL,
+  `reset_status` varchar(200) NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `rpos_pass_resets`
+  ADD PRIMARY KEY (`reset_id`);
+
+ALTER TABLE `rpos_pass_resets`
+  MODIFY `reset_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
+-- PAYMENTS
+CREATE TABLE `rpos_payments` (
+  `pay_id` varchar(200) NOT NULL,
+  `pay_code` varchar(200) NOT NULL,
+  `order_code` varchar(200) NOT NULL,
+  `customer_id` varchar(200) NOT NULL,
+  `pay_amt` varchar(200) NOT NULL,
+  `pay_method` varchar(200) NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `rpos_payments`
+  ADD PRIMARY KEY (`pay_id`),
+  ADD KEY `order` (`order_code`);
