@@ -18,8 +18,10 @@ if (isset($_POST["reset_code"])) {
             // Check if email belongs to admin or customer
             if($mysqli->query("SELECT * FROM rpos_admin WHERE admin_email='$reset_email'")->num_rows > 0){
                 $query = "UPDATE rpos_admin SET  admin_password=? WHERE admin_email=?";
+                $redirect_page = "/cashier/";
             } else {
                 $query = "UPDATE rpos_customers SET  customer_password=? WHERE customer_email=?";
+                $redirect_page = "/customer/";
             }
             $stmt = $mysqli->prepare($query);
             $rc = $stmt->bind_param('ss', $new_password, $reset_email);
@@ -30,6 +32,7 @@ if (isset($_POST["reset_code"])) {
                 $stmt = $mysqli->prepare($query);
                 $rc = $stmt->bind_param('s', $reset_id);
                 $stmt->execute();
+                header("refresh:1; url=$redirect_page");
             } else {
                 $err = "Failed changing password";
             }

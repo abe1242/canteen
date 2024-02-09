@@ -91,7 +91,6 @@ require_once('config/code-generator.php');
                                 <div class="form-group">
                                     <div class="text-left">
                                         <button type="submit" name="addCustomer" class="btn btn-primary my-4">Create Account</button>
-                                        <a href="index.php" class=" btn btn-success pull-right">Log In</a>
                                     </div>
                                 </div>
                             </form>

@@ -6,7 +6,7 @@ function read_cb($ch, $fp, $length) {
 }
 
 function sendEmail($to, $subject, $msg) {
-    $fp = fopen('php://memory', 'r+');
+    $fp = tmpfile();
     $string = "From: <canteengptc@gmail.com>\r\n";
     $string .= "To: <$to>\r\n";
     $string .= "Date: " . date('r') . "\r\n";
