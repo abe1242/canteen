@@ -40,7 +40,6 @@ require_once('partials/_head.php');
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Image</th>
-                    <th scope="col">Product Code</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Action</th>
@@ -65,7 +64,6 @@ require_once('partials/_head.php');
 
                         ?>
                       </td>
-                      <td><?php echo $prod->prod_code; ?></td>
                       <td><?php echo $prod->prod_name; ?></td>
                       <td>₹ <?php echo $prod->prod_price; ?></td>
                       <td>
