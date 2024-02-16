@@ -18,6 +18,8 @@ if (isset($_POST['make'])) {
         $prod_name = $_GET['prod_name'];
         $prod_price = $_GET['prod_price'];
         $prod_qty = $_POST['prod_qty'];
+        if ($prod_qty == '')
+            $prod_qty = '1';
 
         //Insert Captured information to a database table
         $postQuery = "INSERT INTO rpos_orders (prod_qty, order_id, order_status, order_code, customer_id, customer_name, prod_id, prod_name, prod_price) VALUES(?,?,'',?,?,?,?,?,?)";
