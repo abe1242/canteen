@@ -21,19 +21,24 @@ if (isset($_POST['make'])) {
         if ($prod_qty == '')
             $prod_qty = '1';
 
-        //Insert Captured information to a database table
-        $postQuery = "INSERT INTO rpos_orders (prod_qty, order_id, order_status, order_code, customer_id, customer_name, prod_id, prod_name, prod_price) VALUES(?,?,'',?,?,?,?,?,?)";
-        $postStmt = $mysqli->prepare($postQuery);
-        //bind paramaters
-        $rc = $postStmt->bind_param('ssssssss', $prod_qty, $order_id, $order_code, $customer_id, $customer_name, $prod_id, $prod_name, $prod_price);
-        $postStmt->execute();
-        //declare a varible which will be passed to alert function
-        if ($postStmt) {
-            // Update stocks
-            $mysqli->query("UPDATE rpos_products SET prod_stock = prod_stock-$prod_qty WHERE prod_id='$prod_id'");
-            $success = "Order Submitted";
+        // Check if the specified quantity is available in stock
+        if ($mysqli->query("SELECT prod_stock FROM rpos_products WHERE prod_id='$prod_id'")->fetch_assoc()['prod_stock'] >= $prod_qty) {
+            //Insert Captured information to a database table
+            $postQuery = "INSERT INTO rpos_orders (prod_qty, order_id, order_status, order_code, customer_id, customer_name, prod_id, prod_name, prod_price) VALUES(?,?,'',?,?,?,?,?,?)";
+            $postStmt = $mysqli->prepare($postQuery);
+            //bind paramaters
+            $rc = $postStmt->bind_param('ssssssss', $prod_qty, $order_id, $order_code, $customer_id, $customer_name, $prod_id, $prod_name, $prod_price);
+            $postStmt->execute();
+            //declare a varible which will be passed to alert function
+            if ($postStmt) {
+                // Update stocks
+                $mysqli->query("UPDATE rpos_products SET prod_stock = prod_stock-$prod_qty WHERE prod_id='$prod_id'");
+                $success = "Order Submitted";
+            } else {
+                $err = "Please Try Again Or Try Later";
+            }
         } else {
-            $err = "Please Try Again Or Try Later";
+            $err = "Item is not available in stock";
         }
     }
 }
@@ -87,10 +92,7 @@ require_once('partials/_head.php');
                                         <?php } ?>
                                         <input type="hidden" name="order_id" value="<?php echo $orderid; ?>" class="form-control">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label>Order Code</label>
-                                        <input type="text" readonly name="order_code" value="<?php echo $alpha; ?>-<?php echo $beta; ?>" class="form-control" value="">
-                                    </div>
+                                    <input type="hidden" readonly name="order_code" value="<?php echo $alpha; ?>-<?php echo $beta; ?>" class="form-control" value="">
                                 </div>
                                 <hr>
                                 <?php

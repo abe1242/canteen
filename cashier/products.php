@@ -4,6 +4,21 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
+if (isset($_POST['prod_stock'])) {
+  $id = $_POST['prod_id'];
+  $prod_stock = $_POST['prod_stock'];
+  
+  $adn = "UPDATE rpos_products SET prod_stock=$prod_stock WHERE prod_id = ?";
+  $stmt = $mysqli->prepare($adn);
+  $stmt->bind_param('s', $id);
+  $stmt->execute();
+  $stmt->close();
+  if ($stmt) {
+    $success = "Updated stock" && header("refresh:1; url=products.php");
+  } else {
+    $err = "Try Again Later";
+  }
+}
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
   $adn = "DELETE FROM  rpos_products  WHERE  prod_id = ?";
@@ -99,8 +114,11 @@ require_once('partials/_head.php');
                         </a>
                       </td>
                       <td>
-                        <input style="border-radius: 5px; border: 1px solid grey; padding: 4px 8px; margin-right: 10px" type="text" value="<?= $prod->prod_stock; ?>">
-                        <button class="btn btn-sm btn-primary">Update</button>
+                        <form action="" method="post">
+                          <input style="border-radius: 5px; border: 1px solid grey; padding: 4px 8px; margin-right: 10px" type="text" name="prod_stock" value="<?= $prod->prod_stock; ?>">
+                          <input type="hidden" name="prod_id" value="<?= $prod->prod_id ?>">
+                          <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                        </form>
                       </td>
                     </tr>
                   <?php } ?>
