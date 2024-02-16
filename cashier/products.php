@@ -59,6 +59,7 @@ require_once('partials/_head.php');
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Actions</th>
+                    <th scope="col">Stock</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,6 +97,10 @@ require_once('partials/_head.php');
                             Update
                           </button>
                         </a>
+                      </td>
+                      <td>
+                        <input style="border-radius: 5px; border: 1px solid grey; padding: 4px 8px; margin-right: 10px" type="text" value="<?= $prod->prod_stock; ?>">
+                        <button class="btn btn-sm btn-primary">Update</button>
                       </td>
                     </tr>
                   <?php } ?>
