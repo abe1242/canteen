@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set("display_errors", 1);
+
 include('config/config.php');
 include('config/checklogin.php');
 include('config/code-generator.php');
@@ -7,11 +9,10 @@ include('config/code-generator.php');
 check_login();
 if (isset($_POST['addProduct'])) {
   //Prevent Posting Blank Values
-  if (empty($_POST["prod_code"]) || empty($_POST["prod_name"]) || empty($_POST['prod_desc']) || empty($_POST['prod_price'])) {
+  if (empty($_POST["prod_name"]) || empty($_POST['prod_desc']) || empty($_POST['prod_price'])) {
     $err = "Blank Values Not Accepted";
   } else {
     $prod_id = $_POST['prod_id'];
-    $prod_code  = $_POST['prod_code'];
     $prod_name = $_POST['prod_name'];
     $prod_img = $_FILES['prod_img']['name'];
     move_uploaded_file($_FILES["prod_img"]["tmp_name"], "assets/img/products/" . $_FILES["prod_img"]["name"]);
@@ -19,10 +20,10 @@ if (isset($_POST['addProduct'])) {
     $prod_price = $_POST['prod_price'];
 	
     //Insert Captured information to a database table
-    $postQuery = "INSERT INTO rpos_products (prod_id, prod_code, prod_name, prod_img, prod_desc, prod_price ) VALUES(?,?,?,?,?,?)";
+    $postQuery = "INSERT INTO rpos_products (prod_id, prod_name, prod_img, prod_desc, prod_price ) VALUES(?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('ssssss', $prod_id, $prod_code, $prod_name, $prod_img, $prod_desc, $prod_price);
+    $rc = $postStmt->bind_param('sssss', $prod_id, $prod_name, $prod_img, $prod_desc, $prod_price);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
@@ -70,10 +71,6 @@ require_once('partials/_head.php');
                     <label>Product Name</label>
                     <input type="text" name="prod_name" class="form-control">
                     <input type="hidden" name="prod_id" value="<?php echo $prod_id; ?>" class="form-control">
-                  </div>
-                  <div class="col-md-6">
-                    <label>Product Code</label>
-                    <input type="text" name="prod_code" value="<?php echo $alpha; ?>-<?php echo $beta; ?>" class="form-control" value="">
                   </div>
                 </div>
                 <hr>

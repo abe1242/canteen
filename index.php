@@ -71,8 +71,8 @@
                 CANTEEN
             </div>
             <div class="links">
-                <a href="cashier/">Cashier Log In</a>
                 <a href="customer/">Customer Log In</a>
+                <a href="cashier/">Cashier Log In</a>
             </div>
         </div>
     </div>

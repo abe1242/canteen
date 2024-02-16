@@ -27,7 +27,9 @@ if (isset($_POST['make'])) {
         $postStmt->execute();
         //declare a varible which will be passed to alert function
         if ($postStmt) {
-            $success = "Order Submitted" && header("refresh:1; url=payments.php");
+            // Update stocks
+            $mysqli->query("UPDATE rpos_products SET prod_stock = prod_stock-$prod_qty WHERE prod_id='$prod_id'");
+            $success = "Order Submitted";
         } else {
             $err = "Please Try Again Or Try Later";
         }

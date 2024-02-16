@@ -88,10 +88,15 @@ while ($admin = $res->fetch_object()) {
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="change_profile.php">
+              <i class="fas fa-users text-primary"></i> My Profile
+            </a>
+          </li>
+          <!-- <li class="nav-item">
             <a class="nav-link" href="hrm.php">
               <i class="fas fa-user-tie text-primary"></i> Staff
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="products.php">
               <i class="ni ni-bullet-list-67 text-primary"></i>Products
@@ -105,20 +110,18 @@ while ($admin = $res->fetch_object()) {
         </ul>
         <!-- Divider -->
         <hr class="my-3">
-        <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Reporting</h6>
         <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="orders_reports.php">
               <i class="fas fa-shopping-basket"></i> Orders
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="payments_reports.php">
               <i class="fas fa-funnel-dollar"></i> Payments
             </a>
-          </li>
+          </li> -->
         </ul>
         <hr class="my-3">
         <ul class="navbar-nav mb-md-3">

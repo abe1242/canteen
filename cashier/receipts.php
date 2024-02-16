@@ -38,7 +38,6 @@ require_once('partials/_head.php');
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th class="text-success" scope="col">Code</th>
                                         <th scope="col">Customer</th>
                                         <th class="text-success" scope="col">Product</th>
                                         <th scope="col">Unit Price</th>
@@ -59,7 +58,6 @@ require_once('partials/_head.php');
 
                                     ?>
                                         <tr>
-                                            <th class="text-success" scope="row"><?php echo $order->order_code; ?></th>
                                             <td><?php echo $order->customer_name; ?></td>
                                             <td class="text-success"><?php echo $order->prod_name; ?></td>
                                             <td>₹ <?php echo $order->prod_price; ?></td>

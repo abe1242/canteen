@@ -189,7 +189,7 @@ require_once('partials/_head.php');
                 </div>
               </form>
               <hr>
-              <form method=" post">
+              <form method="post">
                 <h6 class="heading-small text-muted mb-4">Change Password</h6>
                 <div class="pl-lg-4">
                   <div class="row">

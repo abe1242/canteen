@@ -56,25 +56,25 @@ ALTER TABLE `rpos_customers`
 -- PRODUCTS
 CREATE TABLE `rpos_products` (
   `prod_id` varchar(200) NOT NULL,
-  `prod_code` varchar(200) NOT NULL,
   `prod_name` varchar(200) NOT NULL,
+  `prod_stock` int NOT NULL,
   `prod_img` varchar(200) NOT NULL,
   `prod_desc` longtext NOT NULL,
   `prod_price` varchar(200) NOT NULL,
   `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `rpos_products` (`prod_id`, `prod_code`, `prod_name`, `prod_img`, `prod_desc`, `prod_price`, `created_at`) VALUES
-('06dc36c1be', 'FCWU-5762', 'Fresh Lime', 'Fresh Lime.jpeg', 'Fresh Lime', '15', '2022-09-03 11:02:47.738370'),
-('0c4b5c0604', 'JRZN-9518', 'Uzhunnu Vada', 'Uzhunnu Vada.jpeg', 'Uzhunnu Vada', '10', '2022-09-03 10:43:27.610897'),
-('14c7b6370e', 'QZHM-0391', 'Chicken Biriyani', 'Chicken Biriyani.jpeg', 'Chicken Biriyani', '60', '2022-09-03 10:58:04.069144'),
-('1e0fa41eee', 'ICFU-1406', 'Goli Baje (Plate: 10)', 'Golibage.jpeg', 'golibaje', '20', '2022-09-03 10:55:23.020144'),
-('2b976e49a0', 'CEWV-9438', 'Parippu Vada', 'Parippu Vada.jpeg', 'Parippu Vada', '10', '2022-09-03 10:45:47.282634'),
-('2fdec9bdfb', 'UJAK-9614', 'Vellayappam', 'vellayappam.jpeg', 'vellayappam', '10', '2022-09-03 10:48:49.593618'),
-('31dfcc94cf', 'SYQP-3710', 'Idali', 'idali.jpeg', 'Idali', '10', '2022-09-03 10:51:09.829079'),
-('3adfdee116', 'HIPF-5346', 'Samoosa', 'Samoosa.jpeg', 'Samoosa', '8', '2022-09-03 12:52:26.427554'),
-('3d19e0bf27', 'EMBH-6714', 'Chaya', 'chaya.jpeg', 'Chaya', '7', '2022-09-03 12:57:39.265554'),
-('4e68e0dd49', 'QLKW-0914', 'Pazham Pori', 'Pazham Pori.jpeg', 'Pazham Pori', '10', '2022-09-03 08:55:51.237667');
+INSERT INTO `rpos_products` (`prod_id`, `prod_name`, `prod_img`, `prod_desc`, `prod_price`, `created_at`, `prod_stock`) VALUES
+('06dc36c1be', 'Fresh Lime', 'Fresh Lime.jpeg', 'Fresh Lime', '15', '2022-09-03 11:02:47.738370', 25),
+('0c4b5c0604', 'Uzhunnu Vada', 'Uzhunnu Vada.jpeg', 'Uzhunnu Vada', '10', '2022-09-03 10:43:27.610897', 25),
+('14c7b6370e', 'Chicken Biriyani', 'Chicken Biriyani.jpeg', 'Chicken Biriyani', '60', '2022-09-03 10:58:04.069144', 25),
+('1e0fa41eee', 'Goli Baje (Plate: 10)', 'Golibage.jpeg', 'golibaje', '20', '2022-09-03 10:55:23.020144', 25),
+('2b976e49a0', 'Parippu Vada', 'Parippu Vada.jpeg', 'Parippu Vada', '10', '2022-09-03 10:45:47.282634', 25),
+('2fdec9bdfb', 'Vellayappam', 'vellayappam.jpeg', 'vellayappam', '10', '2022-09-03 10:48:49.593618', 25),
+('31dfcc94cf', 'Idali', 'idali.jpeg', 'Idali', '10', '2022-09-03 10:51:09.829079', 25),
+('3adfdee116', 'Samoosa', 'Samoosa.jpeg', 'Samoosa', '8', '2022-09-03 12:52:26.427554', 25),
+('3d19e0bf27', 'Chaya', 'chaya.jpeg', 'Chaya', '7', '2022-09-03 12:57:39.265554', 25),
+('4e68e0dd49', 'Pazham Pori', 'Pazham Pori.jpeg', 'Pazham Pori', '10', '2022-09-03 08:55:51.237667', 25);
 
 ALTER TABLE `rpos_products`
   ADD PRIMARY KEY (`prod_id`);
