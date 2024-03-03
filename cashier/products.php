@@ -13,9 +13,7 @@ if (isset($_POST['prod_stock'])) {
   $stmt->bind_param('s', $id);
   $stmt->execute();
   $stmt->close();
-  if ($stmt) {
-    $success = "Updated stock" && header("refresh:1; url=products.php");
-  } else {
+  if (!$stmt) {
     $err = "Try Again Later";
   }
 }
