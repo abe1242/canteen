@@ -117,7 +117,7 @@ require_once('partials/_head.php');
                         <form action="" method="post">
                           <input style="border-radius: 5px; border: 1px solid grey; padding: 4px 8px; margin-right: 10px" type="text" name="prod_stock" value="<?= $prod->prod_stock; ?>">
                           <input type="hidden" name="prod_id" value="<?= $prod->prod_id ?>">
-                          <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                          <button class="btn btn-sm btn-success" type="submit">Update</button>
                         </form>
                       </td>
                     </tr>

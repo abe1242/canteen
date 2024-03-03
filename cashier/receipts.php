@@ -32,7 +32,7 @@ require_once('partials/_head.php');
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header border-0">
-                            Paid Orders
+                            Delivered Orders
                         </div>
                         <div class="table-responsive">
                             <table class="table align-items-center table-flush">

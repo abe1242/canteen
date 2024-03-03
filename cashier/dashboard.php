@@ -145,7 +145,7 @@ require_once('partials/_analytics.php');
                       <td class="text-success"><?php echo $order->prod_qty; ?></td>
                       <td>₹<?php echo $total; ?></td>
                       <td><?php if ($order->order_status == '') {
-                            echo "<span class='badge badge-danger'>Not Paid</span>";
+                            echo "<span class='badge badge-danger'>Not Delivered</span>";
                           } else {
                             echo "<span class='badge badge-success'>$order->order_status</span>";
                           } ?></td>

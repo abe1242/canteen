@@ -64,10 +64,12 @@ require_once('partials/_head.php');
                                             <td class="text-success"><?php echo $order->prod_qty; ?></td>
                                             <td>₹ <?php echo $total; ?></td>
                                             <td><?php if ($order->order_status == '') {
-                                                    echo "<span class='badge badge-danger'>Not Paid</span>";
+                                                    echo "<span class='badge badge-danger'>Not Delivered&nbsp;&nbsp;&nbsp;<button class='btn btn-sm btn-dark fa fa-check'></button></span>";
+                                                    echo "";
                                                 } else {
                                                     echo "<span class='badge badge-success'>$order->order_status</span>";
-                                                } ?></td>
+                                                } ?>
+                                            </td>
                                             <td><?php echo date('d/M/Y g:i', strtotime($order->created_at)); ?></td>
                                         </tr>
                                     <?php } ?>
