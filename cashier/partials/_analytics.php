@@ -24,7 +24,7 @@ $stmt->fetch();
 $stmt->close();
 
 //4.Sales
-$query = "SELECT SUM(pay_amt) FROM `rpos_payments` ";
+$query = "SELECT SUM(prod_price * prod_qty) AS amount FROM `rpos_orders` WHERE `order_status` = 'Delivered' GROUP BY order_status";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
 $stmt->bind_result($sales);

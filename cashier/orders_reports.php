@@ -3,6 +3,22 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
+
+if (isset($_POST['delivered'])) {
+    $order_code = $_POST['order_code'];
+    $order_status = "Delivered";
+
+    // Update order status
+    $upQry = "UPDATE rpos_orders SET order_status =? WHERE order_code =?";
+    $upStmt = $mysqli->prepare($upQry);
+    $rc = $upStmt->bind_param('ss', $order_status, $order_code);
+    $upStmt->execute();
+    
+    if (!$upStmt) {
+        $err = "Please Try Again Or Try Later";
+    }
+}
+
 require_once('partials/_head.php');
 ?>
 
@@ -19,7 +35,7 @@ require_once('partials/_head.php');
         ?>
         <!-- Header -->
         <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-        <span class="mask bg-gradient-dark opacity-8"></span>
+            <span class="mask bg-gradient-dark opacity-8"></span>
             <div class="container-fluid">
                 <div class="header-body">
                 </div>
@@ -49,7 +65,7 @@ require_once('partials/_head.php');
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $ret = "SELECT * FROM  rpos_orders ORDER BY `created_at` DESC  ";
+                                    $ret = "SELECT * FROM  rpos_orders ORDER BY order_status, `created_at` DESC  ";
                                     $stmt = $mysqli->prepare($ret);
                                     $stmt->execute();
                                     $res = $stmt->get_result();
@@ -64,8 +80,7 @@ require_once('partials/_head.php');
                                             <td class="text-success"><?php echo $order->prod_qty; ?></td>
                                             <td>₹ <?php echo $total; ?></td>
                                             <td><?php if ($order->order_status == '') {
-                                                    echo "<span class='badge badge-danger'>Not Delivered&nbsp;&nbsp;&nbsp;<button class='btn btn-sm btn-dark fa fa-check'></button></span>";
-                                                    echo "";
+                                                    echo "<span class='badge badge-danger'>Not Delivered&nbsp;&nbsp;&nbsp;<form style='display: inline' method='post'><input type='hidden' name='order_code' value='$order->order_code'><button class='btn btn-sm btn-dark fa fa-check' name='delivered' type='submit'></button></form></span>";
                                                 } else {
                                                     echo "<span class='badge badge-success'>$order->order_status</span>";
                                                 } ?>
